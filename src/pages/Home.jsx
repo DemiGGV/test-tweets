@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Home = () => {
-  return <div>Home</div>;
+  return <span>Hier konnen Deine AD moglich!</span>;
 };
 
 export default Home;

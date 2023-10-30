@@ -1,11 +1,13 @@
 import React from 'react';
+import { HeaderBox, MenuLink } from './Header.styles';
 
-const Header = () => {
-  return <div>Header</div>;
+export const Header = () => {
+  return (
+    <HeaderBox>
+      <MenuLink to="/" end>
+        Home
+      </MenuLink>
+      <MenuLink to="/tweets">Tweets</MenuLink>
+    </HeaderBox>
+  );
 };
-
-export default Header;
-
-// show all - показати всі твіти.
-// follow - показати твіти, у яких стан follow.
-// followings - показати твіти, у яких стан following

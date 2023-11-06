@@ -6,7 +6,7 @@ import { GlobalCSS } from 'GlobalCSS';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/test-tweets">
       <GlobalCSS />
       <App />
     </BrowserRouter>

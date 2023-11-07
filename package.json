@@ -2,7 +2,7 @@
   "name": "test-tweets",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://DemiGGV.github.io/test-tweets/",
+  "homepage": "https://demiggv.github.io/test-tweets",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",

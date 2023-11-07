@@ -127,7 +127,9 @@ const Tweets = () => {
           />
           <BackButton label="Back" />
         </>
-      ) : null}
+      ) : (
+        'Tost'
+      )}
     </>
   );
 };

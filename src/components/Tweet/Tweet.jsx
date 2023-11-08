@@ -15,8 +15,6 @@ import logoImage from '../../assets/logo.svg';
 import topImage from '../../assets/topImage.png';
 import placeholderImage from '../../assets/userPlaceholder.png';
 import { textNormalize } from 'utils/textNormalize';
-// import { ReactComponent as UserSvg } from '../../assets/ellipse1Stroke.svg';
-// import UserSvg from '../../assets/ellipse1Stroke.svg';
 
 export const Tweet = ({ tweet, onPressHandle, isFollowed = 'false' }) => {
   const { tweets, user, avatar, followers, id } = tweet;

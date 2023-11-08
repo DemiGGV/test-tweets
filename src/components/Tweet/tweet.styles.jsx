@@ -53,6 +53,9 @@ export const UserFrame = styled.div`
   margin-right: auto;
   width: 80px;
   height: 80px;
+  border-radius: 50%;
+  background-color: var(--colors-avatar-bg);
+  overflow: hidden;
 `;
 export const SvgFrame = styled(UserSvg)`
   position: absolute;
@@ -63,10 +66,7 @@ export const SvgFrame = styled(UserSvg)`
   );
 `;
 export const UserLogo = styled.img`
-  background-color: var(--colors-avatar-bg);
   border: 8px solid transparent;
-  border-radius: 50%;
-  overflow: hidden;
 `;
 export const BottomBox = styled.div`
   padding-bottom: 36px;

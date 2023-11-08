@@ -1,7 +1,15 @@
 import React from 'react';
 
 const Home = () => {
-  return <span>Hier konnen Deine AD moglich!</span>;
+  return (
+    <p
+      style={{
+        textAlign: 'center',
+      }}
+    >
+      Hier konnen Deine AD moglich!
+    </p>
+  );
 };
 
 export default Home;

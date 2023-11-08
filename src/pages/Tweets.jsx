@@ -11,7 +11,6 @@ export const statusFilters = Object.freeze({
   following: 'FOLLOWING',
 });
 const FAV_LS_KEY = 'favorits';
-const FILTER_LS_KEY = 'filter';
 let count = 3;
 
 const Tweets = () => {
@@ -20,16 +19,8 @@ const Tweets = () => {
   const [tweetsDb, setTweetsDb] = useState([]);
   const [lastPage, setLastPage] = useState(1);
   const [tweetsToView, setTweetsToView] = useState([]);
-  const [filter, setFilter] = useState(() => {
-    const f = loadLStorage(FILTER_LS_KEY);
-    if (!f) return statusFilters.all;
-    return f;
-  });
-  const [followedArr, setFollowedArr] = useState(() => {
-    const f = loadLStorage(FAV_LS_KEY);
-    if (!f) return [];
-    return f;
-  });
+  const [filter, setFilter] = useState(statusFilters.all);
+  const [followedArr, setFollowedArr] = useState([]);
 
   // Initial fetching of tweets array
   useEffect(() => {
@@ -37,7 +28,7 @@ const Tweets = () => {
       const fetchArr = await fetchTweets();
       setTweetsArr([...fetchArr]);
       setTweetsDb([...fetchArr]);
-      console.log(fetchArr);
+      setFollowedArr([...loadLStorage(FAV_LS_KEY)]);
     };
     firstRun();
   }, []);
@@ -52,12 +43,7 @@ const Tweets = () => {
     if (currentPage > lastP && lastP > 0) {
       setPage(lastP);
     }
-    console.log('setTweets');
   }, [currentPage, tweetsDb]);
-
-  useEffect(() => {
-    saveLStorage(FILTER_LS_KEY, filter);
-  }, [filter]);
 
   useEffect(() => {
     if (filter === statusFilters.all) {
@@ -70,14 +56,6 @@ const Tweets = () => {
     }
     setTweetsDb(tweetsArr.filter(tweet => followedArr.includes(tweet.id)));
   }, [filter, followedArr, tweetsArr]);
-
-  useEffect(() => {
-    try {
-      saveLStorage(FAV_LS_KEY, followedArr);
-    } catch (error) {
-      console.log(error);
-    }
-  }, [followedArr]);
 
   const onPressHandle = id => {
     const tweetId = tweetsToView.findIndex(item => item.id === id);
@@ -93,6 +71,7 @@ const Tweets = () => {
     }
     setTweetsToView(updatedTTV);
     setFollowedArr(updatedFA);
+    saveLStorage(FAV_LS_KEY, updatedFA);
   };
 
   const incrementPage = page => {
@@ -130,7 +109,13 @@ const Tweets = () => {
           <BackButton label="Back" />
         </>
       ) : (
-        'Tost'
+        <p
+          style={{
+            textAlign: 'center',
+          }}
+        >
+          ...Loading
+        </p>
       )}
     </>
   );

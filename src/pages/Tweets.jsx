@@ -32,15 +32,15 @@ const Tweets = () => {
   });
 
   // Initial fetching of tweets array
-  useEffect(
-    () => async () => {
+  useEffect(() => {
+    const firstRun = async () => {
       const fetchArr = await fetchTweets();
       setTweetsArr([...fetchArr]);
       setTweetsDb([...fetchArr]);
       console.log(fetchArr);
-    },
-    []
-  );
+    };
+    firstRun();
+  }, []);
 
   // Update tweets to view array and last page of all tweets array
   useEffect(() => {

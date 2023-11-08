@@ -37,6 +37,7 @@ const Tweets = () => {
       const fetchArr = await fetchTweets();
       setTweetsArr([...fetchArr]);
       setTweetsDb([...fetchArr]);
+      console.log(fetchArr);
     },
     []
   );
@@ -51,6 +52,7 @@ const Tweets = () => {
     if (currentPage > lastP && lastP > 0) {
       setPage(lastP);
     }
+    console.log('setTweets');
   }, [currentPage, tweetsDb]);
 
   useEffect(() => {

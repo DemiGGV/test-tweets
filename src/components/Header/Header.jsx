@@ -1,4 +1,3 @@
-import React from 'react';
 import { HeaderBox, MenuLink } from './Header.styles';
 
 export const Header = () => {

@@ -1,5 +1,4 @@
 import { statusFilters } from 'pages/Tweets';
-import React from 'react';
 import { Label } from './FilterSelector.styles';
 
 export const FilterSelector = ({ setFilter, filter }) => {
